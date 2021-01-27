@@ -5,34 +5,40 @@ nav {
 header {
 	/*background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);*/
 	/*background-image: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);*/
+	display: flex;
 	font-family: 'Lexend Tera', sans-serif;
 	font-family: 'Mansalva', cursive;
 /*	font-family: 'Nunito', sans-serif;*/
 	height: 400px;
 	margin-left: 50px;
-	max-width: 710px;
 }
 
 h1 {
 /*	color: #00a849;*/
 	font-size: 100px;
 	margin-bottom: 0;
+	width: 100%;
 }
 
 h2 {
 	font-size: 48px;
-	text-align: right;
-}
-
-h3 {
-	text-align: right;
 }
 
 main {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: repeat(19, 150px);
+	grid-template-rows: repeat(21, 150px);
 	margin-left: 50px;
+	padding-bottom: 200px;
+}
+
+#name {
+	border: solid 1px purple;
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	max-width: 710px;
 }
 
 .first-initial {
@@ -40,17 +46,15 @@ main {
 	font-size: 164px;
 }
 
-#gardener {
-	background-color: orange;
-	height: 400px;
-	position: absolute;
-	left: 70%;
-	top: 10%;
-	width: 300px;
+#header-illustration {
+	background-color: green;
+	height: 100%;
+	flex: 1;
 }
 
 #watering-can {
-	background-color: purple;
+	border: solid 3px black;
+	border-radius: 15px;
 	height: 100px;
 	position: absolute;
 	left: 65%;
@@ -73,34 +77,34 @@ main {
 	grid-row-start: 1;
 }
 
-.plot2 {
+#plot2 {
 	border: solid 2px orange;
 	grid-column-start: 3;
 	grid-row-start: 4;
 }
 
-.plot3 {
+#plot3 {
 	border: solid 2px yellow;
 	grid-column-start: 1;
-	grid-row-start: 7;
+	grid-row-start: 8;
 }
 
-.plot4 {
+#plot4 {
 	border: solid 2px limegreen;
 	grid-column-start: 3;
-	grid-row-start: 10;
+	grid-row-start: 11;
 }
 
-.plot5 {
+#plot5 {
 	border: solid 2px aqua;
 	grid-column-start: 1;
-	grid-row-start: 13;
+	grid-row-start: 15;
 }
 
-.plot6 {
+#plot6 {
 	border: solid 2px purple;
 	grid-column-start: 3;
-	grid-row-start: 16;
+	grid-row-start: 18;
 }
 
 .base-illustration {
@@ -243,51 +247,99 @@ main {
 	width: 40%;
 }
 
-#blurb1 {
-	background-color: pink;
-	grid-column-start: 3;
+.blurb {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
 	grid-column-end: span 2;
-	grid-row-start: 1;
 	grid-row-end: span 3;
-	transform: translateX(-90%) scale(0.95);
+	font-family: 'Nunito', sans-serif;
+	font-size: 36px;
+	justify-content: center;
 	opacity: 0;
+	padding: 0 10%;
 	transition: all .5s;
 }
 
-#blurb1.display {
+#blurb1 {
+	/*background-color: red;*/
+	grid-column-start: 3;
+	grid-row-start: 1;
+	transform: translateX(10%) scale(0.95);
+}
+
+#blurb2 {
+	/*background-color: orange;*/
+	grid-column-start: 1;
+	grid-row-start: 5;
+	transform: translateX(-10%) scale(0.95);
+}
+
+#blurb3 {
+	/*background-color: yellow;*/
+	grid-column-start: 3;
+	grid-row-start: 8;
+	transform: translateX(10%) scale(0.95);
+}
+
+#blurb4 {
+	/*background-color: green;*/
+	grid-column-start: 1;
+	grid-row-start: 12;
+	transform: translateX(-10%) scale(0.95);
+}
+
+#blurb5 {
+	/*background-color: aqua;*/
+	grid-column-start: 3;
+	grid-row-start: 15;
+	transform: translateX(10%) scale(0.95);
+}
+
+#blurb6 {
+/*	background-color: purple;*/
+	grid-column-start: 1;
+	grid-row-start: 19;
+	transform: translateX(-10%) scale(0.95);
+}
+
+#blurb1.display, #blurb2.display, #blurb3.display, #blurb4.display, #blurb5.display, #blurb6.display {
 	opacity: 1;
 	transform: translateX(0%) scale(1);
 }
 
+@media screen and (max-width: 1500px) {
+	#name {
+		width: 100%;
+	}
+
+	#header-illustration {
+		display: none;
+	}
+}
+
 @media screen and (max-width: 992px) {
-	main{
-		grid-template-rows: repeat(24, 150px);
+	header {
+		height: 300px;
+	}
+
+	h1, h2 {
+		margin-top: 0;
+	}
+
+	main {
+		grid-template-columns: auto;
+		grid-template-rows: repeat(12, 300px);
 	}
 
 	.plot {
+		grid-column-start: 1;
 		grid-column-end: span 4;
+		grid-row: auto;
 	}
 
-	.plot2 {
+	#blurb1, #blurb2, #blurb3, #blurb4, #blurb5, #blurb6 {
 		grid-column-start: 1;
-		grid-row-start: 5;
-	}
-
-	.plot3 {
-		grid-row-start: 9;
-	}
-
-	.plot4 {
-		grid-column-start: 1;
-		grid-row-start: 13;
-	}
-
-	.plot5 {
-		grid-row-start: 17;
-	}	
-
-	.plot6 {
-		grid-column-start: 1;
-		grid-row-start: 21;
+		grid-row: auto;
 	}
 }
