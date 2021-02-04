@@ -7,19 +7,14 @@ let plot6 = document.querySelector("#plot6");
 
 let gardener = document.querySelector("#gardener");
 let wateringCan = document.querySelector("#watering-can");
-// let wateringCan = $("#watering-can");
 let plant1 = document.querySelector("#plant1");
 let plant2 = document.querySelector("#plant2");
 let plant3 = document.querySelector("#plant3");
 
 let blurbs = document.querySelectorAll(".blurb");
 
-// let plot1Location = plot1.getBoundingClientRect().top;
-// let plot2Location = plot2.getBoundingClientRect().top;
-// let plot3Location = plot3.getBoundingClientRect().top;
-// let plot4Location = plot4.getBoundingClientRect().top;
-// let plot5Location = plot5.getBoundingClientRect().top;
-// let plot6Location = plot6.getBoundingClientRect().top;
+let wateringCode1 = document.querySelector("#watering-code1");
+let wateringCanWater = document.querySelector("#watering-can-water");
 
 let plot1Location = plot1.offsetTop;
 let plot2Location = plot2.offsetTop;
@@ -27,17 +22,7 @@ let plot3Location = plot3.offsetTop;
 let plot4Location = plot4.offsetTop;
 let plot5Location = plot5.offsetTop;
 let plot6Location = plot6.offsetTop;
-// function moveWateringCan1() {
-// 	let plant2Left = plant2.getBoundingClientRect().left;
-// 	let plant2Top = plant2.getBoundingClientRect().top;
 
-// 	wateringCan.animate({
-// 		left: `${plant2Left + 200}px`,
-// 		top: `${plant2Top - 200}px`
-// 	}, 2000);
-// }
-
-// let blurbs = $(".blurb");
 
 function debounce(func, wait = 10, immediate = true) {
 	var timeout;
@@ -54,23 +39,6 @@ function debounce(func, wait = 10, immediate = true) {
 	};
 };
 
-//based on Wes Bos's Javascript30
-// function checkSlide(e) {
-// 	blurbs.forEach(blurb => {
-// 		console.log(blurb.height)
-// 		// halfway through the blurb
-// 		let slideInAt = (window.scrollY + window.innerHeight) - parseInt(blurb.height / 2);
-// 		console.log(slideInAt);
-// 		// bottom of the blurb
-// 		let blurbBottom = blurb.offsetTop + blurb.height;
-// 		let isHalfShown = slideInAt > blurb.offsetTop;
-// 		let isNotScrolledPast = window.scrollY < blurbBottom;
-// 		if(isHalfShown && isNotScrolledPast) {
-// 			console.log("ding")
-// 			blurb.classList.add("display");
-// 		}
-// 	});
-// }
 
 function checkSlide() {
 	// console.log(`we are at ${window.scrollY}`);
@@ -82,32 +50,32 @@ function checkSlide() {
 	// console.log(`plot6 starts at ${plot6.getBoundingClientRect().top}`);
 
 
-	if (window.scrollY >= plot1Location - 500) {
+	if (window.scrollY >= plot1Location - 600) {
 		console.log("show1")
 		blurb1.classList.add("display");
 	}
 
-	if (window.scrollY >= plot2Location - 500) {
+	if (window.scrollY >= plot2Location - 600) {
 		console.log("show2");
 		blurb2.classList.add("display");
 	}
 
-	if (window.scrollY >= plot3Location - 500) {
+	if (window.scrollY >= plot3Location - 600) {
 		console.log("show3")
 		blurb3.classList.add("display");
 	}
 
-	if (window.scrollY >= plot4Location - 500) {
+	if (window.scrollY >= plot4Location - 600) {
 		console.log("show4")
 		blurb4.classList.add("display");
 	}
 
-	if (window.scrollY >= plot5Location - 500) {
+	if (window.scrollY >= plot5Location - 600) {
 		console.log("show5")
 		blurb5.classList.add("display");
 	}
 
-	if (window.scrollY >= plot6Location - 500) {
+	if (window.scrollY >= plot6Location - 600) {
 		console.log("show6")
 		blurb6.classList.add("display");
 	}
@@ -118,8 +86,9 @@ window.addEventListener("scroll", debounce(checkSlide));
 
 function activatePlot1() {
 
-	// moveWateringCan1();
-
+	wateringCan.classList.add("activated");
+	// wateringCode1.classList.add("activated");
+	wateringCanWater.classList.add("activated");
 	plant1.classList.add("activated");
 	plant2.classList.add("activated");
 	plant3.classList.add("activated");
@@ -127,4 +96,4 @@ function activatePlot1() {
 
 }
 
-plot1.addEventListener("click", activatePlot1);
+wateringCan.addEventListener("click", activatePlot1);
