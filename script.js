@@ -7,6 +7,8 @@ let plot6 = document.querySelector("#plot6");
 
 let gardener = document.querySelector("#gardener");
 let wateringCan = document.querySelector("#watering-can");
+let rake = document.querySelector("#rake");
+
 let plant1 = document.querySelector("#plant1");
 let plant2 = document.querySelector("#plant2");
 let plant3 = document.querySelector("#plant3");
@@ -15,6 +17,8 @@ let blurbs = document.querySelectorAll(".blurb");
 
 let wateringCode1 = document.querySelector("#watering-code1");
 let wateringCanWater = document.querySelector("#watering-can-water");
+
+let innerPlot = document.querySelector("#inner-plot");
 
 let plot1Location = plot1.offsetTop;
 let plot2Location = plot2.offsetTop;
@@ -85,15 +89,17 @@ window.addEventListener("scroll", debounce(checkSlide));
 
 
 function activatePlot1() {
-
 	wateringCan.classList.add("activated");
-	// wateringCode1.classList.add("activated");
 	wateringCanWater.classList.add("activated");
 	plant1.classList.add("activated");
 	plant2.classList.add("activated");
 	plant3.classList.add("activated");
+}
 
-
+function activatePlot2() {
+	rake.classList.add("activated");
+	innerPlot.classList.add("activated");
 }
 
 wateringCan.addEventListener("click", activatePlot1);
+rake.addEventListener("click", activatePlot2);

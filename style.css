@@ -36,15 +36,7 @@ header {
 	padding-top: 50px;
 }
 
-#gardener {
-	margin-top: 200px;
-	height: 600px;
-	width: 375px;
-}
-
 #name {
-	/*border: solid 1px purple;*/
-	/*color: red;*/
 	flex: 2;
 	font-family: 'Mansalva', cursive;
 	justify-content: flex-end;
@@ -75,6 +67,12 @@ header {
 	flex: 1;
 	font-size: 48px;
 	position: relative;
+}
+
+#gardener {
+	margin-top: 200px;
+	height: 600px;
+	width: 375px;
 }
 
 #header-border {
@@ -201,10 +199,7 @@ main {
 	margin-bottom: 0;
 }
 
-
-
 .base-illustration {
-/*	background-color: yellow;*/
 	align-items: flex-end;
 	display: flex;
 	height: 90%;
@@ -213,7 +208,6 @@ main {
 	position: relative;
 	width: 100%;
 }
-
 
 .category-title {
 	align-items: center;
@@ -228,9 +222,7 @@ main {
 	width: 100%;
 }
 
-
-
-#watering-can {
+#watering-can, #rake {
 	background-image: url("watering-can2-gray.png");
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -238,11 +230,14 @@ main {
 	height: 100px;
 	position: absolute;
 	left: 20px;
-	top: 20%;
 	width: 100px;
 }
 
-#watering-can:not(.activated)::after {
+#watering-can {
+	top: 20%;
+}
+
+#watering-can:not(.activated)::after, #rake:not(.activated)::after {
 	border-radius: 50%;
 	content: "";
 	display: block;
@@ -288,6 +283,78 @@ main {
     animation: waterPlants 6s normal forwards;
 }
 
+#rake {
+	background-image: url("hand-rake-gray.png");
+	bottom: 5%;
+	left: 5%;
+}
+
+#rake:hover {
+	background-image: url("hand-rake.png");
+}
+
+#rake:not(.activated)::after {
+	top: -20px;
+}
+
+#rake.activated {
+	background-image: url("hand-rake.png");
+	-webkit-animation: moveRake 2s normal forwards;
+    animation: moveRake 2s normal forwards;
+}
+
+#plant3 .leaf:nth-of-type(2) {
+	top: 70px;
+	transform: rotate(-20deg);
+} 
+
+#plant3 .leaf:nth-of-type(3) {
+	left: 80px;
+	top: 40px;
+	transform: rotate(-50deg);
+}
+
+.plantA.activated .leaf{
+	left: 10%;
+	max-height: 75px;
+	transition: 2s;
+	transition-delay: 2s;
+	width: 40%;
+}
+
+#plot2 .base-illustration {
+	background-color: gray;
+}
+
+#inner-plot {
+	align-items: center;
+	background-color: white;
+	display: flex;
+	flex-wrap: wrap;
+	height: 80%;
+	justify-content: space-around;
+	width: 50%;
+}
+
+#inner-plot.activated {
+	height: 100%;
+	transition: 1s;
+	transition-delay: 2s;
+	width: 100%;
+}
+
+#inner-plot.activated .carrot-body {
+	background-color: orange;
+	transition: 2s;
+	transition-delay: 2s;
+}
+
+#inner-plot.activated .carrot-leaf, #inner-plot.activated .carrot-leaf::after {
+	background-color: green;
+	transition: 2s;
+	transition-delay: 2s;
+}
+
 .plantA {
 	position: relative;
 }
@@ -331,28 +398,6 @@ main {
 	transform: rotate(-70deg);
 }
 
-#plant2 .leaf:nth-of-type(2) {
-	top: 70%;
-	transform: rotate(-20deg);
-} 
-
-#plant2 .leaf:nth-of-type(3) {
-	left: 59%;
-	top: 35%;
-	transform: rotate(-20deg);
-}
-
-#plant3 .leaf:nth-of-type(2) {
-	top: 70px;
-	transform: rotate(-20deg);
-} 
-
-#plant3 .leaf:nth-of-type(3) {
-	left: 80px;
-	top: 40px;
-	transform: rotate(-50deg);
-}
-
 #plant1.activated {
 	height: 280px;
 	transition: 2s;
@@ -363,6 +408,17 @@ main {
 	background-color: green;
 	transition: 2s;
 	transition-delay: 2s;
+}
+
+#plant2 .leaf:nth-of-type(2) {
+	top: 70%;
+	transform: rotate(-20deg);
+} 
+
+#plant2 .leaf:nth-of-type(3) {
+	left: 59%;
+	top: 35%;
+	transform: rotate(-20deg);
 }
 
 #plant2.activated {
@@ -389,12 +445,59 @@ main {
 	transition-delay: 2s;
 }
 
-.plantA.activated .leaf{
-	left: 10%;
-	max-height: 75px;
-	transition: 2s;
-	transition-delay: 2s;
-	width: 40%;
+.plantB {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	flex: 1;
+	flex-wrap: wrap;
+	min-height: 100px;
+	min-width: 100px;
+}
+
+.carrot-leaf {
+	background-color: gray;
+	border-radius: 30% 70% 0% 100% / 30% 100% 0% 70%;
+	bottom: 50px;
+	height: 50px;
+	left: 20px;
+	position: relative;
+	width: 25px;
+}
+
+.carrot-leaf:after {
+	background-color: gray;
+	border-radius: 30% 70% 0% 100% / 30% 100% 0% 70%;
+	content: "";
+	display: block;
+	height: 40px;
+	left: 15px;
+	position: relative;
+	top: 10px;
+	transform: rotate(40deg);
+	width: 25px;
+}
+
+.carrot-body {
+	background-color: gray;
+	border-radius: 50% 50% 5% 5%;
+	height: 50px;
+	top: 50%;
+	width: 75px;
+}
+
+.carrot-body::after {
+	border-right: solid 2px black;
+	border-top: solid 2px black;
+	border-radius: 50% 50% 5% 5%;
+	content: "";
+	display: block;
+	height: 15px;
+	left: 20px;
+	position: relative;
+	bottom: 30px;
+	width: 40px;
 }
 
 
@@ -527,5 +630,12 @@ main {
 @keyframes waterPlants {
 	0% {bottom: 300%;}
 	100% {bottom: -300%;}
+}
+
+@keyframes moveRake {
+	0% {left: 5%; bottom: 5%;}
+	33% {left: 5%; bottom: 80%;}
+	67% {left: 90%; bottom: 80%;}
+	100% {left: 90%; bottom: 5%;}
 }
 
