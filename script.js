@@ -8,10 +8,13 @@ let plot6 = document.querySelector("#plot6");
 let gardener = document.querySelector("#gardener");
 let wateringCan = document.querySelector("#watering-can");
 let rake = document.querySelector("#rake");
+let fertilizer = document.querySelector("#fertilizer");
 
 let plant1 = document.querySelector("#plant1");
 let plant2 = document.querySelector("#plant2");
 let plant3 = document.querySelector("#plant3");
+
+let treeBranch = document.querySelector("#tree-branch");
 
 let blurbs = document.querySelectorAll(".blurb");
 
@@ -19,6 +22,10 @@ let wateringCode1 = document.querySelector("#watering-code1");
 let wateringCanWater = document.querySelector("#watering-can-water");
 
 let innerPlot = document.querySelector("#inner-plot");
+
+let flower1 = document.querySelector("#flower1");
+let flower2 = document.querySelector("#flower2");
+let flower3 = document.querySelector("#flower3");
 
 let plot1Location = plot1.offsetTop;
 let plot2Location = plot2.offsetTop;
@@ -101,5 +108,14 @@ function activatePlot2() {
 	innerPlot.classList.add("activated");
 }
 
+function activatePlot4() {
+	fertilizer.classList.add("activated");
+	treeBranch.classList.add("activated");
+	flower1.classList.add("activated");
+	flower2.classList.add("activated");
+	flower3.classList.add("activated");
+}
+
 wateringCan.addEventListener("click", activatePlot1);
 rake.addEventListener("click", activatePlot2);
+fertilizer.addEventListener("click", activatePlot4);

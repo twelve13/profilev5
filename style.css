@@ -222,7 +222,7 @@ main {
 	width: 100%;
 }
 
-#watering-can, #rake {
+#watering-can, #rake, #fertilizer {
 	background-image: url("watering-can2-gray.png");
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -237,7 +237,7 @@ main {
 	top: 20%;
 }
 
-#watering-can:not(.activated)::after, #rake:not(.activated)::after {
+#watering-can:not(.activated)::after, #rake:not(.activated)::after, #fertilizer:not(.activated)::after {
 	border-radius: 50%;
 	content: "";
 	display: block;
@@ -303,6 +303,29 @@ main {
     animation: moveRake 2s normal forwards;
 }
 
+#fertilizer {
+	background-image: url("fertilizer-gray2.png");
+	height: 80px;
+	top: 0;
+	width: 80px;
+}
+
+#fertilizer:hover {
+	background-image: url("fertilizer2.png");
+}
+
+#fertilizer:not(.activated)::after {
+	left: -45px;
+	top: -25px;
+}
+
+#fertilizer.activated {
+	background-image: url("fertilizer2.png");
+	cursor: default;
+	transform: rotate(25deg);
+	transition: 1s;
+}
+
 #plant3 .leaf:nth-of-type(2) {
 	top: 70px;
 	transform: rotate(-20deg);
@@ -353,6 +376,21 @@ main {
 	background-color: green;
 	transition: 2s;
 	transition-delay: 2s;
+}
+
+#tree-branch {
+	background-image: url("tree-branch-gray.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100%;
+	width: 100%;
+}
+
+#tree-branch.activated {
+	background-image: url("tree-branch.png");
+	transition: 2s;
+	transition-delay: 1s;
 }
 
 .plantA {
@@ -498,6 +536,62 @@ main {
 	position: relative;
 	bottom: 30px;
 	width: 40px;
+}
+
+#flower1 {
+	background-image: url("flower1.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0;
+	height: 200px;
+	left: 12%;
+	position: absolute;
+	top: 120px;
+	width: 200px;
+	z-index: -1;
+}
+
+#flower1.activated {
+	opacity: 1;
+	transition: 2s;
+	transition-delay: 2s;
+}
+
+#flower2 {
+	background-image: url("flower2.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0;
+	height: 100px;
+	left: 44%;
+	position: absolute;
+	top: 15px;
+	width: 100px;
+}
+
+#flower2.activated {
+	opacity: 1;
+	transition: 1s;
+	transition-delay: 2.2s;
+}
+
+#flower3 {
+	background-image: url("flower3.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0;
+	height: 200px;
+	left: 68%;
+	position: absolute;
+	top: 50px;
+	width: 200px;
+	z-index: -1;
+}
+
+#flower3.activated {
+	opacity: 1;
+	transition: 2s;
+	transition-delay: 2.4s;
 }
 
 
